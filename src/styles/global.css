@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import "./reset.css";
+@import "./variable.css";
+body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--body-font);
+}
+.container{
+    width:min(90%,1200px);
+    margin:auto;
+}
+section{
+    padding:100px 0;
+}
+h1,h2,h3{
+    font-family:var(--heading-font);
+}
+h1{
+    font-size:4rem;
+}
+h2{
+    font-size:2.8rem;
+}
+p{
+    color:var(--text-light);
+    line-height: 1.8;
+}

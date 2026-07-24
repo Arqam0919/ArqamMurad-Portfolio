@@ -1,0 +1,138 @@
+/* ===========================
+   Hero Section
+=========================== */
+
+.hero{
+    width:min(90%,1200px);
+    margin:0 auto;
+    padding:60px 0;
+
+    min-height:80vh;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:60px;
+}
+
+/* Left Side */
+
+.hero-content{
+    flex:1;
+}
+
+.greeting{
+    font-size:1.2rem;
+    color:var(--secondary);
+    margin-bottom:15px;
+}
+
+.hero-content h1{
+    font-size:3.4rem;
+    color:var(--white);
+    line-height:1.2;
+    margin-bottom:15px;
+}
+
+.hero-content h2{
+    font-size:1.7rem;
+    color:var(--primary);
+    margin-bottom:25px;
+}
+
+.description{
+    
+    line-height:1.8;
+    margin-bottom:40px;
+     max-width:500px;
+    font-size:1rem;
+}
+
+/* Buttons */
+
+.Btns{
+    display:flex;
+    gap:20px;
+}
+
+.hireMe,
+.downloadResume{
+    padding:14px 28px;
+    border-radius:50px;
+    font-size:1rem;
+    font-weight:600;
+    transition:var(--transition);
+}
+
+.hireMe{
+    background:var(--primary);
+    color:var(--white);
+}
+
+.hireMe:hover{
+    transform:translateY(-3px);
+    box-shadow:var(--shadow);
+}
+
+.downloadResume{
+    background:transparent;
+    color:var(--white);
+    border:2px solid var(--primary);
+}
+
+.downloadResume:hover{
+    background:var(--primary);
+    transform:translateY(-3px);
+}
+
+/* Right Side */
+
+.profilePic{
+    flex:1;
+
+    display:flex;
+    justify-content:center;
+}
+
+.profilePic img{
+    width:350px;
+    height:350px;
+
+    object-fit:cover;
+
+    border-radius:50%;
+
+    border:6px solid var(--primary);
+
+    box-shadow:
+        0 0 30px rgba(59,130,246,.4);
+}
+
+/* Responsive */
+
+@media(max-width:900px){
+
+    .hero{
+        flex-direction:column-reverse;
+        text-align:center;
+        padding-top:120px;
+    }
+
+    .Btns{
+        justify-content:center;
+        flex-wrap:wrap;
+    }
+
+    .profilePic img{
+        width:300px;
+        height:300px;
+    }
+
+    .hero-content h1{
+        font-size:3rem;
+    }
+
+    .hero-content h2{
+        font-size:1.6rem;
+    }
+}

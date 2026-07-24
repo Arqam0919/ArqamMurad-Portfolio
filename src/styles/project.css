@@ -1,0 +1,299 @@
+/*=========================================
+    Projects & Certificates Section
+=========================================*/
+
+.projectsCertificate{
+    width:min(92%,1200px);
+    margin:auto;
+    padding:100px 0;
+}
+
+/*=========================================
+    Section Titles
+=========================================*/
+
+.main_skills,
+.main_certificate{
+
+    color:var(--primary);
+
+    font-size:.9rem;
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+
+    font-weight:600;
+
+    margin-bottom:10px;
+}
+
+.somebuilt,
+.someget{
+
+    color:var(--text);
+
+    font-size:2.7rem;
+
+    margin-bottom:50px;
+
+    font-weight:700;
+}
+
+/*=========================================
+    Projects
+=========================================*/
+
+.projects{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+
+    gap:35px;
+
+    margin-bottom:90px;
+}
+
+/*=========================================
+    Project Card
+=========================================*/
+
+.skills{
+
+    background:#131d33;
+
+    border:1px solid rgba(70,110,255,.15);
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    transition:.35s ease;
+
+    box-shadow:0 20px 45px rgba(0,0,0,.25);
+
+}
+
+.skills:hover{
+
+    transform:translateY(-12px);
+
+    border-color:var(--primary);
+
+    box-shadow:
+
+    0 20px 50px rgba(35,95,255,.25),
+
+    0 10px 30px rgba(0,0,0,.35);
+
+}
+
+/*=========================================
+    Image
+=========================================*/
+
+.skills img{
+
+    width:100%;
+
+    height:230px;
+
+    object-fit:cover;
+
+    transition:.5s;
+}
+
+.skills:hover img{
+
+    transform:scale(1.08);
+
+}
+
+/*=========================================
+    Project Name
+=========================================*/
+
+.imgName{
+
+    color:white;
+
+    font-size:1.3rem;
+
+    font-weight:600;
+
+    padding:22px 22px 8px;
+
+}
+
+/*=========================================
+    Github Link
+=========================================*/
+
+.link{
+
+    color:#8ea5ff;
+
+    font-size:.95rem;
+
+    padding:0 22px 25px;
+
+    word-break:break-word;
+
+}
+
+.link:hover{
+
+    color:white;
+
+}
+
+/*=========================================
+ Certificates
+=========================================*/
+
+.certificate{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+
+    gap:30px;
+
+}
+
+/*=========================================
+ Certificate Card
+=========================================*/
+
+.pdfTitle{
+
+    background:#131d33;
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    border:1px solid rgba(70,110,255,.15);
+
+    transition:.35s ease;
+
+    box-shadow:0 20px 45px rgba(0,0,0,.25);
+
+}
+
+.pdfTitle:hover{
+
+    transform:translateY(-12px);
+
+    border-color:var(--primary);
+
+    box-shadow:
+
+    0 20px 50px rgba(35,95,255,.25),
+
+    0 10px 30px rgba(0,0,0,.35);
+
+}
+
+/*=========================================
+ Certificate Image
+=========================================*/
+
+.pdfTitle img{
+
+    width:100%;
+
+    height:220px;
+
+    object-fit:cover;
+
+    transition:.5s;
+
+}
+
+.pdfTitle:hover img{
+
+    transform:scale(1.06);
+
+}
+
+/*=========================================
+ Certificate Name
+=========================================*/
+
+.pdfname{
+
+    color:white;
+
+    font-size:1.05rem;
+
+    text-align:center;
+
+    font-weight:600;
+
+    padding:20px;
+
+}
+
+/*=========================================
+ Responsive
+=========================================*/
+
+@media(max-width:992px){
+
+.projects{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+.certificate{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:768px){
+
+.projects,
+.certificate{
+
+grid-template-columns:1fr;
+
+}
+
+.somebuilt,
+.someget{
+
+font-size:2rem;
+
+}
+
+.skills img,
+.pdfTitle img{
+
+height:200px;
+
+}
+
+}
+
+@media(max-width:500px){
+
+.projectsCertificate{
+
+padding:70px 0;
+
+}
+
+.somebuilt,
+.someget{
+
+font-size:1.7rem;
+
+}
+
+}

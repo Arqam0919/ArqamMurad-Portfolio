@@ -1,0 +1,36 @@
+.ourNav{
+    width:100%;
+    background:#1e293b;
+}
+
+.navContainer{
+    width:min(90%,1200px);
+    margin:auto;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:15px 0;
+}
+
+.mylogo img{
+    width:130px;
+    display:block;
+}
+
+.otherComponent{
+    display:flex;
+    align-items:center;
+    gap:35px;
+
+    margin-left:auto;
+    margin-right:40px;
+}
+
+.resumeBtn{
+    padding:12px 24px;
+    background:#3b82f6;
+    color:white;
+    border-radius:40px;
+}

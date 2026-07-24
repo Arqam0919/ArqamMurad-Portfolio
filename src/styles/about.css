@@ -1,0 +1,171 @@
+/* ===========================
+   About Section
+=========================== */
+
+.about{
+    width:min(90%,1200px);
+    margin:0 auto;
+    padding:70px 0;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:60px;
+}
+
+/* ===========================
+   Left Side Image
+=========================== */
+
+.photo{
+    flex:0.9;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.photo img{
+    width:400px;
+    border-radius:18px;
+    object-fit:cover;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.35);
+
+    transition:0.3s ease;
+}
+
+.photo img:hover{
+    transform:translateY(-6px) scale(1.02);
+
+    box-shadow:
+        0 0 25px rgba(59,130,246,.35);
+}
+
+/* ===========================
+   Right Side
+=========================== */
+
+.details{
+    flex:1.1;
+}
+
+.sectionTag{
+    color:var(--primary);
+    font-size:.9rem;
+    font-weight:600;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    margin-bottom:10px;
+}
+
+.details h2{
+    font-size:2.3rem;
+    color:var(--white);
+    margin-bottom:20px;
+}
+
+.desc{
+    color:var(--text-light);
+    line-height:1.8;
+    font-size:1rem;
+    max-width:560px;
+    margin-bottom:30px;
+}
+
+/* ===========================
+   Cards
+=========================== */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+}
+
+.card{
+    background:#1e293b;
+
+    border:1px solid rgba(59,130,246,.15);
+
+    border-radius:16px;
+
+    padding:20px;
+
+    transition:.3s;
+
+    backdrop-filter:blur(8px);
+}
+
+.card:hover{
+    transform:translateY(-6px);
+
+    border-color:var(--primary);
+
+    box-shadow:
+        0 0 18px rgba(59,130,246,.25);
+}
+
+.card h3{
+    color:var(--white);
+    font-size:1.15rem;
+    margin-bottom:12px;
+}
+
+.card p{
+    color:var(--text-light);
+    line-height:1.6;
+    font-size:.92rem;
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media(max-width:992px){
+
+    .about{
+        flex-direction:column;
+        text-align:center;
+        gap:45px;
+    }
+
+    .photo img{
+        width:300px;
+    }
+
+    .details{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .cards{
+        width:100%;
+        grid-template-columns:1fr;
+    }
+
+    .desc{
+        max-width:650px;
+    }
+
+}
+
+@media(max-width:600px){
+
+    .about{
+        padding:60px 0;
+    }
+
+    .photo img{
+        width:250px;
+    }
+
+    .details h2{
+        font-size:2rem;
+    }
+
+    .card{
+        padding:18px;
+    }
+
+}
