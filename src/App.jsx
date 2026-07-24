@@ -8,7 +8,7 @@ function App() {
  
   return(
 <>
-  <h1>Hello Arqam 👋</h1>
+  <h1>Hello👋</h1>
   <p>Welcome to my Portfolio.</p>
   <NavBar/>
    <Hero/>
