@@ -1,6 +1,13 @@
+/* ===========================
+   Navbar
+=========================== */
+
 .ourNav{
     width:100%;
     background:#1e293b;
+    position:sticky;
+    top:0;
+    z-index:1000;
 }
 
 .navContainer{
@@ -11,26 +18,91 @@
     justify-content:space-between;
     align-items:center;
 
-    padding:15px 0;
+    padding:16px 0;
 }
 
+/* Logo */
+
 .mylogo img{
-    width:130px;
+    width:120px;
     display:block;
 }
+
+/* Navigation */
 
 .otherComponent{
     display:flex;
     align-items:center;
-    gap:35px;
-
+    gap:25px;
     margin-left:auto;
-    margin-right:40px;
 }
 
+/* Resume Button */
+
 .resumeBtn{
-    padding:12px 24px;
+    padding:12px 22px;
     background:#3b82f6;
     color:white;
     border-radius:40px;
+    white-space:nowrap;
+    transition:0.3s ease;
+}
+
+.resumeBtn:hover{
+    transform:translateY(-2px);
+}
+
+/* ===========================
+   Tablet
+=========================== */
+
+@media (max-width:768px){
+
+    .navContainer{
+        padding:14px 0;
+    }
+
+    .mylogo img{
+        width:105px;
+    }
+
+    .otherComponent{
+        gap:18px;
+    }
+
+    .resumeBtn{
+        padding:10px 18px;
+        font-size:.9rem;
+    }
+
+}
+
+/* ===========================
+   Mobile
+=========================== */
+
+@media (max-width:480px){
+
+    .navContainer{
+        flex-direction:column;
+        gap:18px;
+    }
+
+    .mylogo img{
+        width:95px;
+    }
+
+    .otherComponent{
+        width:100%;
+        justify-content:center;
+        flex-wrap:wrap;
+        gap:14px;
+        margin:0;
+    }
+
+    .resumeBtn{
+        padding:10px 18px;
+        font-size:.85rem;
+    }
+
 }

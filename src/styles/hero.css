@@ -6,7 +6,6 @@
     width:min(90%,1200px);
     margin:0 auto;
     padding:60px 0;
-
     min-height:80vh;
 
     display:flex;
@@ -28,24 +27,23 @@
 }
 
 .hero-content h1{
-    font-size:3.4rem;
+    font-size:clamp(2.4rem,5vw,3.8rem);
     color:var(--white);
     line-height:1.2;
     margin-bottom:15px;
 }
 
 .hero-content h2{
-    font-size:1.7rem;
+    font-size:clamp(1.3rem,3vw,1.8rem);
     color:var(--primary);
     margin-bottom:25px;
 }
 
 .description{
-    
+    max-width:520px;
+    font-size:1rem;
     line-height:1.8;
     margin-bottom:40px;
-     max-width:500px;
-    font-size:1rem;
 }
 
 /* Buttons */
@@ -53,6 +51,7 @@
 .Btns{
     display:flex;
     gap:20px;
+    flex-wrap:wrap;
 }
 
 .hireMe,
@@ -89,50 +88,95 @@
 
 .profilePic{
     flex:1;
-
     display:flex;
     justify-content:center;
 }
 
 .profilePic img{
-    width:350px;
-    height:350px;
-
+    width:100%;
+    max-width:350px;
+    aspect-ratio:1;
     object-fit:cover;
-
     border-radius:50%;
-
     border:6px solid var(--primary);
-
-    box-shadow:
-        0 0 30px rgba(59,130,246,.4);
+    box-shadow:0 0 30px rgba(59,130,246,.4);
 }
 
-/* Responsive */
+/* ===========================
+   Laptop
+=========================== */
 
-@media(max-width:900px){
+@media (max-width:1024px){
+
+    .hero{
+        gap:40px;
+    }
+
+    .profilePic img{
+        max-width:300px;
+    }
+}
+
+/* ===========================
+   Tablet
+=========================== */
+
+@media (max-width:768px){
 
     .hero{
         flex-direction:column-reverse;
         text-align:center;
-        padding-top:120px;
+        padding:120px 0 60px;
+        gap:40px;
+    }
+
+    .description{
+        margin-inline:auto;
     }
 
     .Btns{
         justify-content:center;
-        flex-wrap:wrap;
     }
 
     .profilePic img{
-        width:300px;
-        height:300px;
+        max-width:260px;
+    }
+}
+
+/* ===========================
+   Mobile
+=========================== */
+
+@media (max-width:480px){
+
+    .hero{
+        padding:100px 0 40px;
+        gap:30px;
     }
 
-    .hero-content h1{
-        font-size:3rem;
+    .greeting{
+        font-size:1rem;
     }
 
-    .hero-content h2{
-        font-size:1.6rem;
+    .description{
+        font-size:0.95rem;
+        line-height:1.7;
+    }
+
+    .Btns{
+        flex-direction:column;
+        align-items:center;
+        width:100%;
+    }
+
+    .hireMe,
+    .downloadResume{
+        width:100%;
+        max-width:260px;
+        text-align:center;
+    }
+
+    .profilePic img{
+        max-width:220px;
     }
 }
