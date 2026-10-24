@@ -64,7 +64,7 @@ const Contact = () => {
 
           <span className="contact-panel-orbit" aria-hidden="true" />
           <h3>Contact Information</h3>
-          <p className="contact-intro">Have an idea, a question, or a good cup of coffee to recommend? Let’s make something memorable.</p>
+          <p className="contact-intro">Have an idea, a question, or a project in mind? Let’s connect, exchange ideas, and build something meaningful together.</p>
 
           <p>
             <strong>Email</strong>
