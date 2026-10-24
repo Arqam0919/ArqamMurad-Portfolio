@@ -5,7 +5,7 @@ import fiver from "../assets/pdfs/CourseraFiverr.jpg";
 import reactb from "../assets/pdfs/Courserareactbasics.jpg";
 
 const project=[
-    {img:"https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&q=85",name:"Cafe Murad",Github:"https://cafe_murad.vercel.app"},
+    {img:"https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&q=85",name:"Cafe Murad",Github:"https://cafemurad.vercel.app"},
     {img:"https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1200&q=85",name:"Notes Management System",Github:"https://github.com/Arqam0919/NOTES-MANAGEMENT-SYSTEM-MERN-"},
     {img:"https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=85",name:"Learning Management System",Github:"https://github.com/Arqam0919/lms-mern-project"},
     {img:"https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=85",name:"FinVault AI",Github:"MIT App Inventer"},
