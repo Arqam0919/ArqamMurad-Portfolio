@@ -5,7 +5,7 @@
 .projectsCertificate{
     width:min(92%,1200px);
     margin:auto;
-    padding:100px 0;
+    padding:150px 0 110px;
 }
 
 /*=========================================
@@ -61,9 +61,11 @@
 
 .skills{
 
-    background:#131d33;
+    display:block;
+    text-decoration:none;
+    background:rgba(255,255,255,.3);
 
-    border:1px solid rgba(70,110,255,.15);
+    border:1px solid rgba(25,24,23,.14);
 
     border-radius:22px;
 
@@ -71,7 +73,7 @@
 
     transition:.35s ease;
 
-    box-shadow:0 20px 45px rgba(0,0,0,.25);
+    box-shadow:0 20px 45px rgba(35,27,18,.1);
 
 }
 
@@ -83,7 +85,7 @@
 
     box-shadow:
 
-    0 20px 50px rgba(35,95,255,.25),
+    0 20px 50px rgba(240,91,59,.2),
 
     0 10px 30px rgba(0,0,0,.35);
 
@@ -115,8 +117,7 @@
 =========================================*/
 
 .imgName{
-
-    color:white;
+    color:var(--text);
 
     font-size:1.3rem;
 
@@ -131,8 +132,7 @@
 =========================================*/
 
 .link{
-
-    color:#8ea5ff;
+    color:var(--primary);
 
     font-size:.95rem;
 
@@ -167,14 +167,13 @@
 =========================================*/
 
 .pdfTitle{
-
-    background:#131d33;
+    background:rgba(255,255,255,.3);
 
     border-radius:22px;
 
     overflow:hidden;
 
-    border:1px solid rgba(70,110,255,.15);
+    border:1px solid rgba(25,24,23,.14);
 
     transition:.35s ease;
 
@@ -223,8 +222,7 @@
 =========================================*/
 
 .pdfname{
-
-    color:white;
+    color:var(--text);
 
     font-size:1.05rem;
 

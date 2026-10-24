@@ -1,12 +1,27 @@
 import "../styles/contact.css";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 
 const Contact = () => {
   const form = useRef();
+  const contactRef = useRef();
+  const [isSending, setIsSending] = useState(false);
+
+  const handlePointerMove = (event) => {
+    const bounds = contactRef.current?.getBoundingClientRect();
+    if (!bounds) return;
+    contactRef.current.style.setProperty("--contact-x", `${((event.clientX - bounds.left) / bounds.width - 0.5) * 2}`);
+    contactRef.current.style.setProperty("--contact-y", `${((event.clientY - bounds.top) / bounds.height - 0.5) * 2}`);
+  };
+
+  const resetPointer = () => {
+    contactRef.current?.style.setProperty("--contact-x", "0");
+    contactRef.current?.style.setProperty("--contact-y", "0");
+  };
 
  const sendEmail = (e) => {
   e.preventDefault();
+  setIsSending(true);
 
   emailjs
     .sendForm(
@@ -20,17 +35,19 @@ const Contact = () => {
         console.log("SUCCESS:", result.text);
         alert("Message sent successfully!");
         form.current.reset();
+        setIsSending(false);
       },
       (error) => {
         console.log("ERROR:", error);
         console.log("STATUS:", error.status);
         console.log("TEXT:", error.text);
         alert(error.text || "Failed to send message.");
+        setIsSending(false);
       }
     );
 };
   return (
-    <section className="contact-section" id="contact">
+    <section className="contact-section" id="contact" ref={contactRef} onPointerMove={handlePointerMove} onPointerLeave={resetPointer}>
       <p className="heading">CONTACT</p>
 
       <h2 className="heading2">Let's Work Together!</h2>
@@ -43,20 +60,28 @@ const Contact = () => {
 
         {/* Contact Information */}
 
-        <div className="contact-info">
+        <div className="contact-info contact-panel">
 
+          <span className="contact-panel-orbit" aria-hidden="true" />
           <h3>Contact Information</h3>
+          <p className="contact-intro">Have an idea, a question, or a good cup of coffee to recommend? Let’s make something memorable.</p>
 
           <p>
             <strong>Email</strong>
             <br />
-            arqammurad365@gmail.com
+            <a className="contact-link" href="mailto:arqammurad365@gmail.com">
+              arqammurad365@gmail.com
+              <span aria-hidden="true">↗</span>
+            </a>
           </p>
 
           <p>
             <strong>Phone</strong>
             <br />
-            +92 325 3241576
+            <a className="contact-link" href="tel:+923253241576">
+              +92 325 3241576
+              <span aria-hidden="true">↗</span>
+            </a>
           </p>
 
           <p>
@@ -68,20 +93,26 @@ const Contact = () => {
           <p>
             <strong>LinkedIn</strong>
             <br />
-            linkedin.com/in/arqammurad
+            <a className="contact-link" href="https://www.linkedin.com/in/arqammurad" target="_blank" rel="noreferrer">
+              linkedin.com/in/arqammurad
+              <span aria-hidden="true">↗</span>
+            </a>
           </p>
 
           <p>
             <strong>GitHub</strong>
             <br />
-            github.com/Arqam0919
+            <a className="contact-link" href="https://github.com/Arqam0919" target="_blank" rel="noreferrer">
+              github.com/Arqam0919
+              <span aria-hidden="true">↗</span>
+            </a>
           </p>
 
         </div>
 
         {/* Contact Form */}
 
-        <div className="form">
+        <div className="form contact-form-card">
 
           <form ref={form} onSubmit={sendEmail}>
 
@@ -144,8 +175,8 @@ const Contact = () => {
               required
             ></textarea>
 
-            <button className="msgSubmit" type="submit">
-              Send Message
+            <button className="msgSubmit" type="submit" disabled={isSending}>
+              {isSending ? "Sending..." : "Send Message"}
             </button>
 
           </form>

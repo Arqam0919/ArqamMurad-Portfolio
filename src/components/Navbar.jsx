@@ -1,9 +1,12 @@
 import "../styles/navbar.css";
 import logo from "../assets/images/logo.png";
+import { useState } from "react";
 const downloadResume = () => {
   window.open("/My_Resume.pdf", "_blank");
 };
 function NavBar(){
+    const [isOpen, setIsOpen] = useState(false);
+    const closeMenu = () => setIsOpen(false);
     return(
         <nav className="ourNav">
   <div className="navContainer">
@@ -12,12 +15,15 @@ function NavBar(){
       <img src={logo} alt="logo" />
     </div>
 
-    <ul className="otherComponent">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects&Certificates</a></li>
-      <li><a href="#contact">Contact</a></li>
+    <button className={`menuToggle ${isOpen ? "isOpen" : ""}`} onClick={() => setIsOpen(!isOpen)} aria-label="Toggle navigation menu" aria-expanded={isOpen}>
+      <span /><span /><span />
+    </button>
+    <ul className={`otherComponent ${isOpen ? "isOpen" : ""}`}>
+      <li><a href="#home" onClick={closeMenu}>Home</a></li>
+      <li><a href="#about" onClick={closeMenu}>About</a></li>
+      <li><a href="#skills" onClick={closeMenu}>Skills</a></li>
+      <li><a href="#projects" onClick={closeMenu}>Projects&amp;Certificates</a></li>
+      <li><a href="#contact" onClick={closeMenu}>Contact</a></li>
     </ul>
 
 

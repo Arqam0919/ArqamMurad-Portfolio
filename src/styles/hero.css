@@ -1,182 +1,123 @@
-/* ===========================
-   Hero Section
-=========================== */
-
 .hero{
-    width:min(90%,1200px);
+    --pointer-x:0;
+    --pointer-y:0;
+    width:min(90%,1280px);
+    min-height:calc(100vh - 82px);
     margin:0 auto;
-    padding:60px 0;
-    min-height:80vh;
-
-    display:flex;
-    justify-content:space-between;
+    padding:80px 0 110px;
+    display:grid;
+    grid-template-columns:1fr .9fr;
     align-items:center;
-    gap:60px;
+    gap:5vw;
+    overflow:visible;
 }
-
-/* Left Side */
-
-.hero-content{
-    flex:1;
-}
-
-.greeting{
-    font-size:1.2rem;
-    color:var(--secondary);
-    margin-bottom:15px;
-}
-
-.hero-content h1{
-    font-size:clamp(2.4rem,5vw,3.8rem);
-    color:var(--white);
-    line-height:1.2;
-    margin-bottom:15px;
-}
-
-.hero-content h2{
-    font-size:clamp(1.3rem,3vw,1.8rem);
-    color:var(--primary);
-    margin-bottom:25px;
-}
-
-.description{
-    max-width:520px;
-    font-size:1rem;
-    line-height:1.8;
-    margin-bottom:40px;
-}
-
-/* Buttons */
-
-.Btns{
+.hero-content{position:relative;z-index:2}
+.eyebrow{
     display:flex;
-    gap:20px;
-    flex-wrap:wrap;
+    align-items:center;
+    gap:10px;
+    color:var(--text);
+    font-size:.75rem;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    font-weight:700;
+    margin-bottom:28px;
 }
-
-.hireMe,
-.downloadResume{
-    padding:14px 28px;
-    border-radius:50px;
-    font-size:1rem;
-    font-weight:600;
+.eyebrow span{width:30px;height:2px;background:var(--primary)}
+.greeting{font-size:1.1rem;color:var(--primary);margin-bottom:6px}
+.hero-content h1{
+    color:var(--text);
+    font-size:clamp(4.2rem,10vw,9.2rem);
+    letter-spacing:-.08em;
+    line-height:.78;
+    margin:0 0 34px -7px;
+}
+.hero-content h1 em{color:var(--primary);font-style:normal}
+.hero-content h2{
+    color:var(--text);
+    font-size:clamp(1.2rem,2.2vw,1.75rem);
+    font-weight:500;
+    line-height:1.25;
+    margin-bottom:20px;
+}
+.description{max-width:440px;font-size:1rem;line-height:1.8;margin-bottom:32px}
+.Btns{display:flex;gap:14px;flex-wrap:wrap}
+.hireMe,.downloadResume{
+    padding:14px 24px;
+    border-radius:2px;
+    font-size:.85rem;
+    letter-spacing:.5px;
+    font-weight:700;
     transition:var(--transition);
 }
-
-.hireMe{
-    background:var(--primary);
-    color:var(--white);
-}
-
-.hireMe:hover{
-    transform:translateY(-3px);
-    box-shadow:var(--shadow);
-}
-
-.downloadResume{
-    background:transparent;
-    color:var(--white);
-    border:2px solid var(--primary);
-}
-
-.downloadResume:hover{
-    background:var(--primary);
-    transform:translateY(-3px);
-}
-
-/* Right Side */
-
+.hireMe{background:var(--primary);color:var(--bg)}
+.hireMe:hover,.downloadResume:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.downloadResume{background:transparent;color:var(--text);border:1px solid rgba(25,24,23,.45)}
+.downloadResume:hover{background:var(--text);color:var(--bg)}
 .profilePic{
-    flex:1;
-    display:flex;
-    justify-content:center;
+    position:relative;
+    display:grid;
+    place-items:center;
+    min-height:540px;
+    perspective:1100px;
+    transform:translate3d(calc(var(--pointer-x) * -8px),calc(var(--pointer-y) * -8px),0);
+    transition:transform .45s ease-out;
 }
-
-.profilePic img{
-    width:100%;
-    max-width:350px;
-    aspect-ratio:1;
-    object-fit:cover;
+.profileHalo{
+    position:absolute;
+    width:min(36vw,430px);
+    height:min(36vw,430px);
     border-radius:50%;
-    border:6px solid var(--primary);
-    box-shadow:0 0 30px rgba(59,130,246,.4);
+    background:var(--secondary);
+    transform:translate(calc(var(--pointer-x) * 13px),calc(var(--pointer-y) * 13px));
+    transition:transform .45s ease-out;
 }
-
-/* ===========================
-   Laptop
-=========================== */
-
-@media (max-width:1024px){
-
-    .hero{
-        gap:40px;
-    }
-
-    .profilePic img{
-        max-width:300px;
-    }
+.profileCard{
+    position:relative;
+    width:min(31vw,370px);
+    transform:rotateY(calc(var(--pointer-x) * -10deg)) rotateX(calc(var(--pointer-y) * 10deg)) rotateZ(4deg) translateZ(70px);
+    transition:transform .2s ease-out;
+    filter:drop-shadow(24px 35px 18px rgba(35,27,18,.2));
 }
-
-/* ===========================
-   Tablet
-=========================== */
-
+.profileCard::after{
+    content:"";
+    position:absolute;
+    inset:10px -16px -16px 16px;
+    border:1px solid var(--text);
+    z-index:-1;
+}
+.profileCard img{
+    width:100%;
+    aspect-ratio:4/5;
+    object-fit:cover;
+    filter:grayscale(1) contrast(1.08);
+    clip-path:polygon(8% 0,100% 0,92% 100%,0 100%);
+}
+.portraitLabel{
+    position:absolute;
+    bottom:20px;
+    left:-35px;
+    padding:12px 16px;
+    background:var(--primary);
+    color:var(--bg);
+    font-size:.65rem;
+    letter-spacing:2px;
+    line-height:1.3;
+}
+.portraitLabel strong{font-size:.8rem}
+.orbit{position:absolute;border:1px solid rgba(25,24,23,.35);border-radius:50%;pointer-events:none}
+.orbitOne{width:112%;height:48%;transform:rotate(-25deg)}
+.orbitTwo{width:92%;height:66%;transform:rotate(44deg)}
 @media (max-width:768px){
-
-    .hero{
-        flex-direction:column-reverse;
-        text-align:center;
-        padding:120px 0 60px;
-        gap:40px;
-    }
-
-    .description{
-        margin-inline:auto;
-    }
-
-    .Btns{
-        justify-content:center;
-    }
-
-    .profilePic img{
-        max-width:260px;
-    }
+    .hero{grid-template-columns:1fr;text-align:center;padding:70px 0;gap:25px}
+    .hero-content{order:2}
+    .profilePic{order:1;min-height:340px}
+    .profileHalo{width:280px;height:280px}
+    .profileCard{width:245px}
+    .hero-content h1{font-size:clamp(4rem,18vw,6rem)}
+    .eyebrow,.Btns{justify-content:center}
+    .description{margin-inline:auto}
 }
-
-/* ===========================
-   Mobile
-=========================== */
-
-@media (max-width:480px){
-
-    .hero{
-        padding:100px 0 40px;
-        gap:30px;
-    }
-
-    .greeting{
-        font-size:1rem;
-    }
-
-    .description{
-        font-size:0.95rem;
-        line-height:1.7;
-    }
-
-    .Btns{
-        flex-direction:column;
-        align-items:center;
-        width:100%;
-    }
-
-    .hireMe,
-    .downloadResume{
-        width:100%;
-        max-width:260px;
-        text-align:center;
-    }
-
-    .profilePic img{
-        max-width:220px;
-    }
+@media (prefers-reduced-motion:reduce){
+    .profilePic,.profileHalo,.profileCard{transform:none;transition:none}
 }

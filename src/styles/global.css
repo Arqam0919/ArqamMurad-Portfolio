@@ -6,6 +6,9 @@ body{
     background:var(--bg);
     color:var(--text);
     font-family:var(--body-font);
+    background-image:radial-gradient(rgba(25,24,23,.07) .7px, transparent .7px);
+    background-size:7px 7px;
+    padding-bottom:58px;
 }
 .container{
     width:min(90%,1200px);
@@ -26,4 +29,60 @@ h2{
 p{
     color:var(--text-light);
     line-height: 1.8;
+}
+::selection{background:var(--primary);color:var(--bg)}
+section{
+    opacity:1;
+    transform:none;
+}
+section.isVisible{
+    animation:sectionIn .8s cubic-bezier(.2,.8,.2,1) both;
+}
+@keyframes sectionIn{
+    from{opacity:0;transform:translateY(35px)}
+    to{opacity:1;transform:none}
+}
+.cursorOrb{
+    --cursor-x:-100px;
+    --cursor-y:-100px;
+    position:fixed;
+    z-index:2000;
+    top:0;
+    left:0;
+    width:34px;
+    height:34px;
+    border:1px solid var(--primary);
+    border-radius:50%;
+    pointer-events:none;
+    transform:translate3d(calc(var(--cursor-x) - 50%),calc(var(--cursor-y) - 50%),0);
+    transition:transform .08s linear;
+    mix-blend-mode:multiply;
+}
+.cursorOrb::before{
+    content:"";
+    position:absolute;
+    inset:5px;
+    border:1px solid rgba(240,91,59,.45);
+    border-radius:50%;
+    animation:cursorSpin 5s linear infinite;
+}
+.cursorOrb span{
+    position:absolute;
+    inset:0;
+    display:grid;
+    place-items:center;
+    width:7px;
+    height:7px;
+    margin:auto;
+    background:var(--primary);
+    border-radius:50%;
+    box-shadow:0 0 12px var(--primary);
+}
+@keyframes cursorSpin{to{transform:rotate(360deg)}}
+@media (pointer:coarse){
+    .cursorOrb{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+    section,section.isVisible{opacity:1;transform:none;animation:none}
+    .cursorOrb{display:none}
 }
