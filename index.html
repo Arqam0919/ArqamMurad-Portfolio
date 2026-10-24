@@ -2,11 +2,38 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>arqammurad</title>
+    <title>Arqam Murad | Portfolio</title>
+    <style>
+      .site-loader {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        display: grid;
+        place-items: center;
+        background: #191817;
+        transition: opacity .45s ease, visibility .45s ease;
+      }
+      .site-loader.is-hidden {
+        opacity: 0;
+        visibility: hidden;
+      }
+      .site-loader img {
+        width: min(58vw, 280px);
+        height: auto;
+        animation: loaderPulse 1.6s ease-in-out infinite;
+      }
+      @keyframes loaderPulse {
+        0%, 100% { transform: scale(.96); opacity: .72; }
+        50% { transform: scale(1); opacity: 1; }
+      }
+    </style>
   </head>
   <body>
+    <div class="site-loader" id="site-loader" aria-label="Loading Arqam Murad portfolio">
+      <img src="/logo.png" alt="Arqam Murad" />
+    </div>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
