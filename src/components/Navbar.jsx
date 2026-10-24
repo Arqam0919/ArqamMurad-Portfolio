@@ -24,6 +24,11 @@ function NavBar(){
       <li><a href="#skills" onClick={closeMenu}>Skills</a></li>
       <li><a href="#projects" onClick={closeMenu}>Projects&amp;Certificates</a></li>
       <li><a href="#contact" onClick={closeMenu}>Contact</a></li>
+      <li className="mobileResumeItem">
+        <button className="resumeBtn mobileResume" onClick={() => { closeMenu(); downloadResume(); }}>
+          Resume
+        </button>
+      </li>
     </ul>
 
 

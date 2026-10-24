@@ -6,6 +6,7 @@
 .otherComponent a:hover{color:var(--primary)}
 .resumeBtn{padding:11px 20px;background:var(--text);color:var(--bg);border-radius:2px;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;white-space:nowrap;transition:var(--transition)}
 .resumeBtn:hover{background:var(--primary);transform:translateY(-2px)}
+.mobileResumeItem{display:none}
 .menuToggle{display:none;background:transparent;width:38px;height:34px;padding:7px;flex-direction:column;justify-content:space-between}
 .menuToggle span{display:block;height:2px;width:100%;background:var(--text);transition:var(--transition)}
 .menuToggle.isOpen span:nth-child(1){transform:translateY(9px) rotate(45deg)}
@@ -17,5 +18,8 @@
     .otherComponent{display:none;order:3;width:100%;justify-content:center;margin:0;gap:16px;flex-wrap:wrap;padding:14px 0 4px;border-top:1px solid rgba(25,24,23,.12)}
     .otherComponent.isOpen{display:flex;animation:menuIn .3s ease both}
     .otherComponent a{font-size:.65rem}
+    .mobileResumeItem{display:block;width:100%;text-align:center;margin-top:4px}
+    .mobileResume{display:inline-block}
+    .navContainer > .resumeBtn{display:none}
 }
 @keyframes menuIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
